@@ -17,7 +17,7 @@ namespace DAL
         IProductRepository _products;
         IOrdersRepository _orders;
         IAccounttypeRepository _accounttypes;
-        IAccountRepository _accounts;
+        IBankAccountRepository _bankaccounts;
 
 
 
@@ -49,14 +49,14 @@ namespace DAL
                 return _accounttypes;
             }
         }
-        public IAccountRepository Accounts
+        public IBankAccountRepository BankAccounts
         {
             get
             {
-                if (_accounts == null)
-                    _accounts = new AccountRepository(_context);
+                if (_bankaccounts == null)
+                    _bankaccounts = new BankAccountRepository(_context);
 
-                return _accounts;
+                return _bankaccounts;
             }
         }
 

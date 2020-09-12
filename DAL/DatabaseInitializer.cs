@@ -99,7 +99,7 @@ namespace DAL
                     UpdatedDate = DateTime.UtcNow
                 };
 
-                Account account_1 = new Account
+                BankAccount account_1 = new BankAccount
                 {
                     AccountHolderName = "Mathew",
                     AccountNo = "0052322233",
@@ -244,7 +244,7 @@ namespace DAL
                 _context.AccountTypes.Add(accounttype_3);
                 _context.AccountTypes.Add(accounttype_4);
                 _context.AccountTypes.Add(accounttype_5);
-                _context.Accounts.Add(account_1);
+                _context.BankAccounts.Add(account_1);
 
                 await _context.SaveChangesAsync();
 

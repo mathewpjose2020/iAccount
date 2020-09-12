@@ -5,8 +5,8 @@ using System.Linq;
 
 namespace DAL.Repositories.Interfaces
 {
-    public interface IAccountRepository : IRepository<Account>
+    public interface IBankAccountRepository : IRepository<BankAccount>
     {
-        IEnumerable<Account> GetAllAccounts();
+        IEnumerable<BankAccount> GetAllAccounts();
     }
 }

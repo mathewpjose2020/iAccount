@@ -25,7 +25,7 @@ namespace DAL
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<AccountType> AccountTypes { get; set; }
-        public DbSet<Account> Accounts { get; set; }
+        public DbSet<BankAccount> BankAccounts { get; set; }
 
 
 
@@ -50,17 +50,17 @@ namespace DAL
             builder.Entity<AccountType>().HasIndex(c => c.AccountTypeShortName).IsUnique();
             builder.Entity<AccountType>().ToTable($"App{nameof(this.AccountTypes)}");
 
-            builder.Entity<Account>().Property(c => c.AccountHolderName).IsRequired();
-            builder.Entity<Account>().Property(c => c.AccountNo).IsRequired();
-            builder.Entity<Account>().Property(c => c.Country).IsRequired();
-            builder.Entity<Account>().Property(c => c.State).IsRequired();
-            builder.Entity<Account>().Property(c => c.DateofBirth).IsRequired();
-            builder.Entity<Account>().Property(c => c.ContactEmail).IsRequired();
-            builder.Entity<Account>().Property(c => c.ContactNo).IsRequired();
-            builder.Entity<Account>().Property(c => c.AccountTypeId).IsRequired();
-            builder.Entity<Account>().Property(c => c.Address).IsRequired();
-            builder.Entity<Account>().HasIndex(c => c.AccountNo).IsUnique();
-            builder.Entity<Account>().ToTable($"App{nameof(this.Accounts)}");
+            builder.Entity<BankAccount>().Property(c => c.AccountHolderName).IsRequired();
+            builder.Entity<BankAccount>().Property(c => c.AccountNo).IsRequired();
+            builder.Entity<BankAccount>().Property(c => c.Country).IsRequired();
+            builder.Entity<BankAccount>().Property(c => c.State).IsRequired();
+            builder.Entity<BankAccount>().Property(c => c.DateofBirth).IsRequired();
+            builder.Entity<BankAccount>().Property(c => c.ContactEmail).IsRequired();
+            builder.Entity<BankAccount>().Property(c => c.ContactNo).IsRequired();
+            builder.Entity<BankAccount>().Property(c => c.AccountTypeId).IsRequired();
+            builder.Entity<BankAccount>().Property(c => c.Address).IsRequired();
+            builder.Entity<BankAccount>().HasIndex(c => c.AccountNo).IsUnique();
+            builder.Entity<BankAccount>().ToTable($"App{nameof(this.BankAccounts)}");
 
             builder.Entity<Customer>().Property(c => c.Name).IsRequired().HasMaxLength(100);
             builder.Entity<Customer>().HasIndex(c => c.Name);

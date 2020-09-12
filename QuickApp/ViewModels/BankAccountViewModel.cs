@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuickApp.ViewModels
 {
-    public class AccountViewModel
+    public class BankAccountViewModel
     {
         public int Id { get; set; }
         public string AccountNo { get; set; }
@@ -27,7 +27,7 @@ namespace QuickApp.ViewModels
         public DateTime UpdatedDate { get; set; }
     }
 
-    public class AccountViewModelValidator : AbstractValidator<AccountViewModel>
+    public class AccountViewModelValidator : AbstractValidator<BankAccountViewModel>
     {
         public AccountViewModelValidator()
         {

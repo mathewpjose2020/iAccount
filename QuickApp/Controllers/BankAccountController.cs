@@ -13,14 +13,14 @@ namespace QuickApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountsController : ControllerBase
+    public class BankAccountController : ControllerBase
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
         private readonly IEmailSender _emailSender;
 
-        public AccountsController(IMapper mapper, IUnitOfWork unitOfWork, ILogger<AccounttypeController> logger, IEmailSender emailSender)
+        public BankAccountController(IMapper mapper, IUnitOfWork unitOfWork, ILogger<AccounttypeController> logger, IEmailSender emailSender)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -31,8 +31,8 @@ namespace QuickApp.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var allAccounts = _unitOfWork.Accounts.GetAllAccounts();
-            return Ok(_mapper.Map<IEnumerable<AccountViewModel>>(allAccounts));
+            var allAccounts = _unitOfWork.BankAccounts.GetAllAccounts();
+            return Ok(_mapper.Map<IEnumerable<BankAccountViewModel>>(allAccounts));
         }
 
         // GET api/values/5

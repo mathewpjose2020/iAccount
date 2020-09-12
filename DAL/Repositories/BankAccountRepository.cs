@@ -9,13 +9,13 @@ using DAL.Repositories.Interfaces;
 
 namespace DAL.Repositories
 {
-    public class AccountRepository : Repository<Account>, IAccountRepository
+    public class BankAccountRepository : Repository<BankAccount>, IBankAccountRepository
     {
-        public AccountRepository(ApplicationDbContext context) : base(context)
+        public BankAccountRepository(ApplicationDbContext context) : base(context)
         { }
-        public IEnumerable<Account> GetAllAccounts()
+        public IEnumerable<BankAccount> GetAllAccounts()
         {
-            return _appContext.Accounts
+            return _appContext.BankAccounts
                 .OrderBy(c => c.AccountHolderName)
                 .ToList();
         }

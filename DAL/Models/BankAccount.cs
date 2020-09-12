@@ -8,7 +8,7 @@ using DAL.Models.Interfaces;
 
 namespace DAL.Models
 {
-    public class Account : IAuditableEntity
+    public class BankAccount : IAuditableEntity
     {
         public int Id { get; set; }
         public string AccountNo { get; set; }
