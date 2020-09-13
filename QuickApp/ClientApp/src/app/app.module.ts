@@ -1,13 +1,9 @@
-// =============================
-// Email: info@ebenmonney.com
-// www.ebenmonney.com/templates
-// =============================
-
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';   
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -126,7 +122,7 @@ import { RoleEditorComponent } from './components/controls/role-editor.component
     AccountService,
     AccountEndpoint,
     LocalStoreManager,
-    OidcHelperService
+    OidcHelperService, DatePipe
   ],
   bootstrap: [AppComponent]
 })

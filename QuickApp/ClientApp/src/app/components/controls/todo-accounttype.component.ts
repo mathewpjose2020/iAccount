@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input, TemplateRef, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { DatePipe } from '@angular/common';
 
 import { AuthService } from '../../services/auth.service';
 import { AlertService, MessageSeverity, DialogType } from '../../services/alert.service';
@@ -18,6 +19,15 @@ import { Accounttype } from '../../models/accounttype.model';
 })
 export class TodoAccountTypeComponent implements OnInit, OnDestroy {
   public static readonly DBKeyTodoDemo = 'todo-demo.todo_list';
+  public accounttype: Accounttype  = {
+    id: 0,
+    accountTypeName: '',
+    accountTypeShortName: '',
+    CreatedBy: '',
+    CreatedDate: new Date(),
+    UpdatedBy: '',
+    UpdatedDate: new Date(),
+  };
 
   rows = [];
   rowsCache = [];
@@ -83,7 +93,8 @@ export class TodoAccountTypeComponent implements OnInit, OnDestroy {
   editorModal: ModalDirective;
 
 
-    constructor(private accounttype: Accounttype,private accounttypeService: AccounttypeService,private alertService: AlertService, private translationService: AppTranslationService, private localStorage: LocalStoreManager, private authService: AuthService) {
+  constructor(private accounttypeService: AccounttypeService, public datepipe: DatePipe, private alertService: AlertService, private translationService: AppTranslationService, private localStorage: LocalStoreManager, private authService: AuthService) {
+
   }
 
 
@@ -194,11 +205,22 @@ export class TodoAccountTypeComponent implements OnInit, OnDestroy {
   //  this.editorModal.hide();
   //}
 
-    save() {
-        this.accounttype = this.taskEdit;
-        this.accounttypeService.addAccounttype(this.accounttype)
-            .subscribe(accounttypes => {
-            });
+  save() {
+      this.accounttype = {
+        id: 0,
+        accountTypeName: '',
+        accountTypeShortName: '',
+        CreatedBy: '',
+        CreatedDate: new Date(),
+        UpdatedBy: '',
+        UpdatedDate: new Date(),
+      };
+      this.accounttype.accountTypeName = this.taskEdit.description;
+      this.accounttype.accountTypeShortName = this.taskEdit.name;
+      this.accounttypeService.addAccounttype(this.accounttype)
+        .subscribe(accounttype => {
+          this.accounttype = accounttype;
+        });
     }
 
 
