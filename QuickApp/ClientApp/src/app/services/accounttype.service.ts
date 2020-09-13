@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { LocalStoreManager } from './local-store-manager.service';
 import { OidcHelperService } from './oidc-helper.service';
@@ -15,25 +15,46 @@ import { User } from '../models/user.model';
 import { PermissionValues } from '../models/permission.model';
 import { Accounttype } from '../models/accounttype.model';
 
+
 @Injectable()
 export class AccounttypeService {
 
   public url: string;
   public accounttypes: Accounttype[];
-  public http: HttpClient;
+
+  private heroesUrl = 'api/Accounttype/Get';  // URL to web api
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(
-    private router: Router,
+    private http: HttpClient,private router: Router,
     private oidcHelperService: OidcHelperService,
     private configurations: ConfigurationService,
     private localStorage: LocalStoreManager) {
 
   }
 
-  testMethod() {
-    this.url = this.router.url;
-    return this.http.get<Accounttype[]>(this.url + 'api/Accounttype/Get').subscribe(result => {
-      this.accounttypes = result;
-    }, error => console.error(error));
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      console.error(error); 
+
+      this.log(`${operation} failed: ${error.message}`);
+
+      return of(result as T);
+    };
+  }
+
+  private log(message: string) {
+    console.error(message);
+  }
+
+  getHeroes(): Observable<Accounttype[]> {
+    return this.http.get<Accounttype[]>(this.heroesUrl)
+      .pipe(
+        tap(_ => this.log('fetched heroes')),
+        catchError(this.handleError<Accounttype[]>('getHeroes', []))
+      );
   }
 }

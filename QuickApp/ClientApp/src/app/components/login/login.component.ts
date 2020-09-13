@@ -8,7 +8,7 @@ import { ConfigurationService } from '../../services/configuration.service';
 import { Utilities } from '../../services/utilities';
 import { UserLogin } from '../../models/user-login.model';
 import { Accounttype } from '../../models/accounttype.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -24,14 +24,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   modalClosedCallback: () => void;
   loginStatusSubscription: any;
   public accounttypes: Accounttype[];
-  public http: HttpClient;
-  public url: string;
 
   @Input()
   isModal = false;
 
 
-  constructor(private alertService: AlertService, private router: Router, private authService: AuthService, private accounttypeService: AccounttypeService, private configurations: ConfigurationService) {
+  constructor(private alertService: AlertService, private router: Router, private authService: AuthService, private configurations: ConfigurationService) {
     
   }
 

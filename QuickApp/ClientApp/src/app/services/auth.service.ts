@@ -101,13 +101,15 @@ export class AuthService {
       .pipe(map(resp => this.processLoginResponse(resp, this.rememberMe)));
   }
 
+  testMethod() {
+
+  }
+
   loginWithPassword(userName: string, password: string, rememberMe?: boolean) {
     if (this.isLoggedIn) {
       this.logout();
     }
 
-    //return this.oidcHelperService.loginWithPassword(userName, password)
-    //  .pipe();
 
     return this.oidcHelperService.loginWithPassword(userName, password)
       .pipe(map(resp => this.processLoginResponse(resp, rememberMe)));
