@@ -70,7 +70,6 @@
     <None Remove="ClientApp\src\app\components\accounttype\accountType.component.ts" />
     <None Remove="ClientApp\src\app\models\accounttype.model.js" />
     <None Remove="ClientApp\src\app\models\accounttype.model.js.map" />
-    <None Remove="ClientApp\src\app\models\accounttype.model.ts" />
   </ItemGroup>
 
   <ItemGroup>
