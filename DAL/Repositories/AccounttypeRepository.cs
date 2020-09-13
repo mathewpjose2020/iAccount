@@ -11,6 +11,7 @@ namespace DAL.Repositories
 {
     public class AccounttypeRepository : Repository<AccountType>, IAccounttypeRepository
     {
+        private ApplicationDbContext _appContext => (ApplicationDbContext)_context;
         public AccounttypeRepository(ApplicationDbContext context) : base(context)
         { }
         public IEnumerable<AccountType> GetAllAccounttypes()
@@ -20,6 +21,16 @@ namespace DAL.Repositories
                 .ToList();
         }
 
-        private ApplicationDbContext _appContext => (ApplicationDbContext)_context;
+        public async Task<(bool Succeeded, string[] Errors)> CreateAccountType(AccountType AccountType)
+        {
+            var result = await _appContext.AccountTypes.AddAsync(AccountType);
+            _appContext.SaveChanges();
+            //if (!result)
+            //    return (false, result.Errors.Select(e => e.Description).ToArray());
+
+            return (true, new string[] { });
+        }
+
+        
     }
 }

@@ -59,8 +59,8 @@
 
   <ng-template #actionsTemplate let-row="row">
 
-    <a class="btn btn-link btn-sm" href="javascript:;" tooltip="{{'todoAccountType.management.Edit' | translate}}" container="body" (click)="delete(row)"><i class="fa fa-times"></i></a>
-    <a class="btn btn-link btn-sm" href="javascript:;" tooltip="{{'todoAccountType.management.Delete' | translate}}" container="body" (click)="delete(row)"><i class="fa fa-times"></i></a>
+    <a class="btn btn-link btn-sm" href="javascript:;" tooltip="{{'todoAccountType.management.Edit' | translate}}" container="body" (click)="delete(row)"><i class="fa fa-edit"></i></a>
+    <a class="btn btn-link btn-sm" href="javascript:;" tooltip="{{'todoAccountType.management.Delete' | translate}}" container="body" (click)="delete(row)"><i class="fa fa-trash"></i></a>
 
   </ng-template>
 
@@ -98,9 +98,9 @@
               <label class="col-form-label col-md-3" for="taskDescription">{{'todoAccountType.editor.Shortname' | translate}}:</label>
               <div class="col-md-9">
                 <input type="text" id="taskDescription" name="taskDescription" placeholder="Enter Short Name" class="form-control" [ngClass]="{'is-valid': f.submitted && taskDescription.valid, 'is-invalid' : f.submitted && !taskDescription.valid}"
-                       [(ngModel)]="taskEdit.name" #taskDescription="ngModel" required />
+                       [(ngModel)]="taskEdit.description" #taskDescription="ngModel" required />
                 <span *ngIf="f.submitted && !taskDescription.valid" class="invalid-feedback">
-                  {{'todoAccountType.editor.AccounttypeRequired' | translate}}
+                  {{'todoAccountType.editor.ShortnameRequired' | translate}}
                 </span>
 
               </div>

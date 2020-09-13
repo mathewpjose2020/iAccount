@@ -8,6 +8,9 @@ using QuickApp.ViewModels;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using QuickApp.Helpers;
+using DAL.Repositories;
+using DAL.Models;
+using DAL.Repositories.Interfaces;
 
 namespace QuickApp.Controllers
 {
@@ -19,13 +22,15 @@ namespace QuickApp.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IAccounttypeRepository _accounttyperepository;
 
-        public AccounttypeController(IMapper mapper, IUnitOfWork unitOfWork, ILogger<AccounttypeController> logger, IEmailSender emailSender)
+        public AccounttypeController(IAccounttypeRepository accounttyperepository,IMapper mapper, IUnitOfWork unitOfWork, ILogger<AccounttypeController> logger, IEmailSender emailSender)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _logger = logger;
             _emailSender = emailSender;
+            _accounttyperepository = accounttyperepository;
         }
 
         [HttpGet]
@@ -47,8 +52,10 @@ namespace QuickApp.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]AccountType AccountType)
         {
+            var result = _accounttyperepository.CreateAccountType(AccountType);
+            return Ok(AccountType);
         }
 
 

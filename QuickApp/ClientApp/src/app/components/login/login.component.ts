@@ -77,11 +77,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.alertService.startLoadingMessage('', 'Attempting login...');
 
-    this.accounttypeService.getaccounttypes()
-      .subscribe(accounttypes => {
-        this.accounttypes = accounttypes;
-      });
-      
     this.authService.loginWithPassword(this.userLogin.userName, this.userLogin.password, this.userLogin.rememberMe)
       .subscribe(
         user => {

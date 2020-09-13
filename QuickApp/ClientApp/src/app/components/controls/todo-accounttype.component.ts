@@ -6,6 +6,8 @@ import { AlertService, MessageSeverity, DialogType } from '../../services/alert.
 import { AppTranslationService } from '../../services/app-translation.service';
 import { LocalStoreManager } from '../../services/local-store-manager.service';
 import { Utilities } from '../../services/utilities';
+import { AccounttypeService } from '../../services/accounttype.service';
+import { Accounttype } from '../../models/accounttype.model';
 
 
 
@@ -81,7 +83,7 @@ export class TodoAccountTypeComponent implements OnInit, OnDestroy {
   editorModal: ModalDirective;
 
 
-  constructor(private alertService: AlertService, private translationService: AppTranslationService, private localStorage: LocalStoreManager, private authService: AuthService) {
+    constructor(private accounttype: Accounttype,private accounttypeService: AccounttypeService,private alertService: AlertService, private translationService: AppTranslationService, private localStorage: LocalStoreManager, private authService: AuthService) {
   }
 
 
@@ -182,15 +184,22 @@ export class TodoAccountTypeComponent implements OnInit, OnDestroy {
     });
   }
 
-  save() {
-    this.rowsCache.splice(0, 0, this.taskEdit);
-    this.rows.splice(0, 0, this.taskEdit);
-    this.refreshDataIndexes(this.rowsCache);
-    this.rows = [...this.rows];
+  //save() {
+  //  this.rowsCache.splice(0, 0, this.taskEdit);
+  //  this.rows.splice(0, 0, this.taskEdit);
+  //  this.refreshDataIndexes(this.rowsCache);
+  //  this.rows = [...this.rows];
 
-    this.saveToDisk();
-    this.editorModal.hide();
-  }
+  //  this.saveToDisk();
+  //  this.editorModal.hide();
+  //}
+
+    save() {
+        this.accounttype = this.taskEdit;
+        this.accounttypeService.addAccounttype(this.accounttype)
+            .subscribe(accounttypes => {
+            });
+    }
 
 
   updateValue(event, cell, cellValue, row) {
