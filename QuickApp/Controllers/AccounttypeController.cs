@@ -32,7 +32,8 @@ namespace QuickApp.Controllers
         public IActionResult Get()
         {
             var allAccounttypes = _unitOfWork.Accounttypes.GetAllAccounttypes();
-            return Ok(_mapper.Map<IEnumerable<AccounttypeViewModel>>(allAccounttypes));
+            //return Ok(_mapper.Map<IEnumerable<AccounttypeViewModel>>(allAccounttypes));
+            return Ok(allAccounttypes);
         }
 
         // GET api/values/5

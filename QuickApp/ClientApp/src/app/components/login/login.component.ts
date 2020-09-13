@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   isModal = false;
 
 
-  constructor(private alertService: AlertService, private router: Router, private authService: AuthService, private configurations: ConfigurationService) {
+  constructor(private accounttypeService: AccounttypeService,private alertService: AlertService, private router: Router, private authService: AuthService, private configurations: ConfigurationService) {
     
   }
 
@@ -77,10 +77,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.alertService.startLoadingMessage('', 'Attempting login...');
 
-    this.url = this.router.url;
-    this.http.get<Accounttype[]>(this.url + 'api/Accounttype/Get').subscribe(result => {
-      this.accounttypes = result;
-    }, error => console.error(error));
+    this.accounttypeService.getaccounttypes()
+      .subscribe(accounttypes => {
+        this.accounttypes = accounttypes;
+      });
       
     this.authService.loginWithPassword(this.userLogin.userName, this.userLogin.password, this.userLogin.rememberMe)
       .subscribe(

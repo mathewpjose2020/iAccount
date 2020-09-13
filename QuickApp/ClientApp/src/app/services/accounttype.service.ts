@@ -1,36 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+//import { HttpClient, HttpHeaders } from '@angular/common/http';
+//import { Observable, of } from 'rxjs';
+//import { catchError, map, tap } from 'rxjs/operators';
 
 import { LocalStoreManager } from './local-store-manager.service';
-import { OidcHelperService } from './oidc-helper.service';
-import { ConfigurationService } from './configuration.service';
-import { DBkeys } from './db-keys';
-import { JwtHelper } from './jwt-helper';
-import { Utilities } from './utilities';
-import { AccessToken, LoginResponse } from '../models/login-response.model';
-import { User } from '../models/user.model';
-import { PermissionValues } from '../models/permission.model';
+//import { OidcHelperService } from './oidc-helper.service';
+//import { ConfigurationService } from './configuration.service';
+//import { DBkeys } from './db-keys';
+//import { JwtHelper } from './jwt-helper';
+//import { Utilities } from './utilities';
+//import { AccessToken, LoginResponse } from '../models/login-response.model';
+//import { User } from '../models/user.model';
+//import { PermissionValues } from '../models/permission.model';
+
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Accounttype } from '../models/accounttype.model';
 
 
-@Injectable()
-export class AccounttypeService {
+@Injectable({ providedIn: 'root' })
+
+ export class AccounttypeService {
 
   public url: string;
   public accounttypes: Accounttype[];
 
-  private heroesUrl = 'api/Accounttype/Get';  // URL to web api
+  private heroesUrl = 'api/Accounttype/';  // URL to web api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(
     private http: HttpClient,private router: Router,
-    private oidcHelperService: OidcHelperService,
-    private configurations: ConfigurationService,
     private localStorage: LocalStoreManager) {
 
   }
@@ -50,7 +55,7 @@ export class AccounttypeService {
     console.error(message);
   }
 
-  getHeroes(): Observable<Accounttype[]> {
+  getaccounttypes(): Observable<Accounttype[]> {
     return this.http.get<Accounttype[]>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('fetched heroes')),
