@@ -10,11 +10,11 @@ import { Utilities } from '../../services/utilities';
 
 
 @Component({
-  selector: 'app-todo-demo',
-  templateUrl: './todo-demo.component.html',
-  styleUrls: ['./todo-demo.component.scss']
+  selector: 'app-todo-accounttype',
+  templateUrl: './todo-accounttype.component.html',
+    styleUrls: ['./todo-accounttype.component.scss']
 })
-export class TodoDemoComponent implements OnInit, OnDestroy {
+export class TodoAccountTypeComponent implements OnInit, OnDestroy {
   public static readonly DBKeyTodoDemo = 'todo-demo.todo_list';
 
   rows = [];
@@ -68,6 +68,9 @@ export class TodoDemoComponent implements OnInit, OnDestroy {
   @ViewChild('nameTemplate', { static: true })
   nameTemplate: TemplateRef<any>;
 
+  @ViewChild('createdonTemplate', { static: true })
+  createdonTemplate: TemplateRef<any>;
+
   @ViewChild('descriptionTemplate', { static: true })
   descriptionTemplate: TemplateRef<any>;
 
@@ -100,8 +103,9 @@ export class TodoDemoComponent implements OnInit, OnDestroy {
 
     this.columns = [
       { prop: 'completed', name: '', width: 30, headerTemplate: this.statusHeaderTemplate, cellTemplate: this.statusTemplate, resizeable: false, canAutoResize: false, sortable: false, draggable: false },
-      { prop: 'name', name: gT('todoDemo.management.Task'), cellTemplate: this.nameTemplate, width: 200 },
-      { prop: 'description', name: gT('todoDemo.management.Description'), cellTemplate: this.descriptionTemplate, width: 500 },
+        { prop: 'name', name: gT('todoAccountType.management.Accounttype'), cellTemplate: this.nameTemplate, width: 200 },
+        { prop: 'description', name: gT('todoAccountType.management.Shortname'), cellTemplate: this.descriptionTemplate, width: 100 },
+        { prop: 'createdon', name: gT('todoAccountType.management.Createdon'), cellTemplate: this.nameTemplate, width: 200 },
       { name: '', width: 80, cellTemplate: this.actionsTemplate, resizeable: false, canAutoResize: false, sortable: false, draggable: false }
     ];
   }
@@ -113,7 +117,14 @@ export class TodoDemoComponent implements OnInit, OnDestroy {
 
 
   fetch(cb) {
-    let data = this.getFromDisk();
+      let data = this.getFromDisk();
+      data = [
+          { name: 'Savings Account', description: 'SB', createdon:'12/09/2020'},
+          { name: 'Fixed Deposit', description: 'FD', createdon: '12/09/2020' },
+          { name: 'Current Account', description: 'CA', createdon: '12/09/2020' },
+          { name: 'Overdraft Account', description: 'OD', createdon: '12/09/2020'},
+          { name: 'Demat Account', description: 'DA', createdon: '12/09/2020' },
+      ];
 
     if (data == null) {
       setTimeout(() => {
@@ -122,10 +133,9 @@ export class TodoDemoComponent implements OnInit, OnDestroy {
 
         if (data == null) {
           data = [
-            { completed: true, important: true, name: 'Create visual studio extension', description: 'Create a visual studio VSIX extension package that will add this project as an aspnet-core project template' },
-            { completed: false, important: true, name: 'Do a quick how-to writeup', description: '' },
-            {
-              completed: false, important: false, name: 'Create aspnet-core/Angular tutorials based on this project', description: 'Create tutorials (blog/video/youtube) on how to build applications (full stack)' +
+            { name: 'Create visual studio extension', description: 'Create a visual studio VSIX extension package that will add this project as an aspnet-core project template' },
+            { name: 'Do a quick how-to writeup', description: '' },
+            { name: 'Create aspnet-core/Angular tutorials based on this project', description: 'Create tutorials (blog/video/youtube) on how to build applications (full stack)' +
                 ' using aspnet-core/Angular. The tutorial will focus on getting productive with the technology right away rather than the details on how and why they work so audience can get onboard quickly.'
             },
           ];
@@ -193,7 +203,7 @@ export class TodoDemoComponent implements OnInit, OnDestroy {
 
 
   delete(row) {
-    this.alertService.showDialog('Are you sure you want to delete the task?', DialogType.confirm, () => this.deleteHelper(row));
+    this.alertService.showDialog('Are you sure you want to delete the account type?', DialogType.confirm, () => this.deleteHelper(row));
   }
 
 
@@ -205,12 +215,12 @@ export class TodoDemoComponent implements OnInit, OnDestroy {
   }
 
   getFromDisk() {
-    return this.localStorage.getDataObject(`${TodoDemoComponent.DBKeyTodoDemo}:${this.currentUserId}`);
+      return this.localStorage.getDataObject(`${TodoAccountTypeComponent.DBKeyTodoDemo}:${this.currentUserId}`);
   }
 
   saveToDisk() {
     if (this.isDataLoaded) {
-      this.localStorage.saveSyncedSessionData(this.rowsCache, `${TodoDemoComponent.DBKeyTodoDemo}:${this.currentUserId}`);
+        this.localStorage.saveSyncedSessionData(this.rowsCache, `${TodoAccountTypeComponent.DBKeyTodoDemo}:${this.currentUserId}`);
     }
   }
 }

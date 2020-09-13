@@ -11,7 +11,8 @@
     "Orders": "Orders",
     "About": "About",
     "Logout": "Logout",
-    "Accounttype": "Accounttype"
+    "Accounttypes": "Account Types",
+    "Accounts": "Accounts"
   },
   "pageHeader": {
     "Dashboard": "Dashboard",
@@ -21,7 +22,8 @@
     "NotFound": "Not-Found",
     "About": "About",
     "Settings": "Settings",
-    "Accounttype": "Account Type"
+    "Accounttypes": "Account Types",
+    "Accounts": "Accounts"
   },
   "home": {
     "NoWidgets1": "You have no widgets displayed. Goto",
@@ -169,6 +171,30 @@
     "Pin": "Pin notification",
     "Date": "Date",
     "Notification": "Notification"
+  },
+  "todoAccountType": {
+    "management": {
+      "Search": "Search for account type...",
+      "HideCompleted": "Hide Completed",
+      "AddTask": "Add Accounttype",
+      "Delete": "Delete Accounttype",
+      "Edit": "Edit Accounttype",
+      "Important": "Mark as important",
+      "Task": "Task",
+      "Accounttype": "Account Type",
+      "Shortname": "Short Name",
+      "Createdon": "Created On",
+      "Description": "Description"
+    },
+    "editor": {
+      "NewTask": "New Accounttype",
+      "Accounttype": "Account Type Name",
+      "AccounttypeRequired": "Account Type Name is required",
+      "Shortname": "Short Name",
+      "ShortnameRequired": "Short Name is required",
+      "Important": "Mark as important",
+      "AddTask": "Add Task"
+    }
   },
   "todoDemo": {
     "management": {
