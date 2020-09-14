@@ -196,6 +196,30 @@
       "AddTask": "Add Task"
     }
   },
+  "todoBankAccounts": {
+    "management": {
+      "Search": "Search for bank accounts...",
+      "HideCompleted": "Hide Completed",
+      "AddTask": "Add Bank Account",
+      "Delete": "Delete Bank Account",
+      "Edit": "Edit Bank Acount",
+      "Important": "Mark as important",
+      "Task": "Task",
+      "Accounttype": "Account Type",
+      "Shortname": "Short Name",
+      "Createdon": "Created On",
+      "Description": "Description"
+    },
+    "editor": {
+      "NewTask": "New Bank Account",
+      "Accounttype": "Account Type Name",
+      "AccounttypeRequired": "Account Type Name is required",
+      "Shortname": "Short Name",
+      "ShortnameRequired": "Short Name is required",
+      "Important": "Mark as important",
+      "AddTask": "Add Task"
+    }
+  },
   "todoDemo": {
     "management": {
       "Search": "Search for task...",

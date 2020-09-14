@@ -45,6 +45,7 @@ import { CustomersComponent } from './components/customers/customers.component';
 import { AccountTypeComponent } from './components/accounttype/accounttype.component';
 import { BankAccountsComponent } from './components/bankaccounts/bankaccounts.component';
 import { TodoAccountTypeComponent } from './components/controls/todo-accounttype.component';
+import { TodoBankAccountsComponent } from './components/controls/todo-bankaccounts.component';
 import { ProductsComponent } from './components/products/products.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { SettingsComponent } from './components/settings/settings.component';
@@ -92,7 +93,7 @@ import { RoleEditorComponent } from './components/controls/role-editor.component
     LoginComponent,
     HomeComponent,
     AccountTypeComponent,
-    TodoAccountTypeComponent,
+    TodoAccountTypeComponent, TodoBankAccountsComponent,
     CustomersComponent,
     ProductsComponent,
     OrdersComponent,
