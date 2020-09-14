@@ -63,40 +63,40 @@ namespace DAL
                 {
                     AccountTypeName = "SB",
                     AccountTypeShortName = "Savings Account",
-                    CreatedDate = DateTime.UtcNow,
-                    UpdatedDate = DateTime.UtcNow
+                    CreatedDate = DateTime.UtcNow.ToLongDateString(),
+                    UpdatedDate = DateTime.UtcNow.ToLongDateString()
                 };
 
                 AccountType accounttype_2 = new AccountType
                 {
                     AccountTypeName = "FD",
                     AccountTypeShortName = "Fixed Deposit",
-                    CreatedDate = DateTime.UtcNow,
-                    UpdatedDate = DateTime.UtcNow
+                    CreatedDate = DateTime.UtcNow.ToLongDateString(),
+                    UpdatedDate = DateTime.UtcNow.ToLongDateString()
                 };
 
                 AccountType accounttype_3 = new AccountType
                 {
                     AccountTypeName = "CA",
                     AccountTypeShortName = "Current Account",
-                    CreatedDate = DateTime.UtcNow,
-                    UpdatedDate = DateTime.UtcNow
+                    CreatedDate = DateTime.UtcNow.ToLongDateString(),
+                    UpdatedDate = DateTime.UtcNow.ToLongDateString()
                 };
 
                 AccountType accounttype_4 = new AccountType
                 {
                     AccountTypeName = "OD",
                     AccountTypeShortName = "Overdraft Account",
-                    CreatedDate = DateTime.UtcNow,
-                    UpdatedDate = DateTime.UtcNow
+                    CreatedDate = DateTime.UtcNow.ToLongDateString(),
+                    UpdatedDate = DateTime.UtcNow.ToLongDateString()
                 };
 
                 AccountType accounttype_5 = new AccountType
                 {
                     AccountTypeName = "DA",
                     AccountTypeShortName = "Demat Account",
-                    CreatedDate = DateTime.UtcNow,
-                    UpdatedDate = DateTime.UtcNow
+                    CreatedDate = DateTime.UtcNow.ToLongDateString(),
+                    UpdatedDate = DateTime.UtcNow.ToLongDateString()
                 };
 
                 BankAccount account_1 = new BankAccount

@@ -20,13 +20,13 @@ import { Accounttype } from '../../models/accounttype.model';
 export class TodoAccountTypeComponent implements OnInit, OnDestroy {
   public static readonly DBKeyTodoDemo = 'todo-demo.todo_list';
   public accounttype: Accounttype  = {
-    id: 0,
-    accountTypeName: '',
-    accountTypeShortName: '',
+    Id: 0,
+    AccountTypeName: '',
+   AccountTypeShortName: '',
     CreatedBy: '',
-    CreatedDate: new Date(),
+    CreatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
     UpdatedBy: '',
-    UpdatedDate: new Date(),
+    UpdatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
   };
 
   rows = [];
@@ -207,16 +207,16 @@ export class TodoAccountTypeComponent implements OnInit, OnDestroy {
 
   save() {
       this.accounttype = {
-        id: 0,
-        accountTypeName: '',
-        accountTypeShortName: '',
+        Id: 0,
+        AccountTypeName: '',
+        AccountTypeShortName: '',
         CreatedBy: '',
-        CreatedDate: new Date(),
+        CreatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
         UpdatedBy: '',
-        UpdatedDate: new Date(),
+        UpdatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
       };
-      this.accounttype.accountTypeName = this.taskEdit.description;
-      this.accounttype.accountTypeShortName = this.taskEdit.name;
+    this.accounttype.AccountTypeName = this.taskEdit.description;
+    this.accounttype.AccountTypeShortName = this.taskEdit.name;
       this.accounttypeService.addAccounttype(this.accounttype)
         .subscribe(accounttype => {
           this.accounttype = accounttype;

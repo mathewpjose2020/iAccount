@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Accounttype = /** @class */ (function () {
     function Accounttype(id, accountTypeName, accountTypeShortName, CreatedBy, UpdatedBy, CreatedDate, UpdatedDate) {
-        this.id = id;
-        this.accountTypeName = accountTypeName;
-        this.accountTypeShortName = accountTypeShortName;
+        this.Id = id;
+        this.AccountTypeName = accountTypeName;
+        this.AccountTypeShortName = accountTypeShortName;
         this.CreatedBy = CreatedBy;
         this.UpdatedBy = UpdatedBy;
         this.CreatedDate = CreatedDate;

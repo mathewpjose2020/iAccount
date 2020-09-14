@@ -17,6 +17,9 @@
             <a class="nav-link" routerLink=""><i class="fa fa-home"></i></a>
           </li>
           <li class="nav-item" routerLinkActive="active" *ngIf="canViewCustomers">
+            <a class="nav-link" routerLink="/bankaccounts">{{'mainMenu.BankAccounts' | translate}}</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="canViewCustomers">
             <a class="nav-link" routerLink="/accounttypes">{{'mainMenu.Accounttypes' | translate}}</a>
           </li>
           <li class="nav-item" routerLinkActive="active" *ngIf="canViewCustomers">

@@ -1,21 +1,21 @@
 export class Accounttype {
     
-  constructor(id?: Number, accountTypeName?: string, accountTypeShortName?: string, CreatedBy?: string, UpdatedBy?: string, CreatedDate?: Date, UpdatedDate?: Date) {
+  constructor(id?: Number, accountTypeName?: string, accountTypeShortName?: string, CreatedBy?: string, UpdatedBy?: string, CreatedDate?: string, UpdatedDate?: string) {
 
-        this.id = id;
-        this.accountTypeName = accountTypeName;
-        this.accountTypeShortName = accountTypeShortName;
+    this.Id = id;
+    this.AccountTypeName = accountTypeName;
+    this.AccountTypeShortName = accountTypeShortName;
         this.CreatedBy = CreatedBy;
         this.UpdatedBy = UpdatedBy;
         this.CreatedDate = CreatedDate;
         this.UpdatedDate = UpdatedDate;
     }
 
-  public id: Number;
-  public accountTypeName: string;
-  public accountTypeShortName: string;
+  public Id: Number;
+  public AccountTypeName: string;
+  public AccountTypeShortName: string;
   public CreatedBy: string;
   public UpdatedBy: string;
-  public CreatedDate: Date;
-  public UpdatedDate: Date;
+  public CreatedDate: string;
+  public UpdatedDate: string;
 }

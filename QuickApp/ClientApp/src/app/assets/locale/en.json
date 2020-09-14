@@ -12,7 +12,7 @@
     "About": "About",
     "Logout": "Logout",
     "Accounttypes": "Account Types",
-    "Accounts": "Accounts"
+    "BankAccounts": "Bank Accounts"
   },
   "pageHeader": {
     "Dashboard": "Dashboard",
@@ -23,7 +23,7 @@
     "About": "About",
     "Settings": "Settings",
     "Accounttypes": "Account Types",
-    "Accounts": "Accounts"
+    "BankAccounts": "Bank Accounts"
   },
   "home": {
     "NoWidgets1": "You have no widgets displayed. Goto",
