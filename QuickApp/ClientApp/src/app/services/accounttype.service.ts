@@ -63,8 +63,8 @@ import { Accounttype } from '../models/accounttype.model';
       );
   }
 
-  addAccounttype(hero: Accounttype): Observable<Accounttype> {
-    return this.http.post<Accounttype>(this.heroesUrl, Accounttype, this.httpOptions).pipe(
+  addAccounttype(hero): Observable<Accounttype> {
+    return this.http.post<Accounttype>(this.heroesUrl, hero, this.httpOptions).pipe(
       tap((newHero: Accounttype) => this.log(`added account type w/ id=${newHero.Id}`)),
       catchError(this.handleError<Accounttype>('addHero'))
     );

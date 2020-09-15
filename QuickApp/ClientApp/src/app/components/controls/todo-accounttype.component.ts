@@ -214,10 +214,21 @@ export class TodoAccountTypeComponent implements OnInit, OnDestroy {
         CreatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
         UpdatedBy: '',
         UpdatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
-      };
+    };
+    let accountType = {};
+    
     this.accounttype.AccountTypeName = this.taskEdit.description;
     this.accounttype.AccountTypeShortName = this.taskEdit.name;
-      this.accounttypeService.addAccounttype(this.accounttype)
+    accountType = {
+      Id: this.accounttype.Id,
+      AccountTypeName: this.accounttype.AccountTypeName,
+      AccountTypeShortName: this.accounttype.AccountTypeShortName,
+      CreatedBy: this.accounttype.CreatedBy,
+      CreatedDate: this.accounttype.CreatedDate,
+      UpdatedBy: this.accounttype.UpdatedBy,
+      UpdatedDate: this.accounttype.UpdatedDate
+    };
+    this.accounttypeService.addAccounttype(accountType)
         .subscribe(accounttype => {
           this.accounttype = accounttype;
         });
