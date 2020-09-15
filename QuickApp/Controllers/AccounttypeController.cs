@@ -52,9 +52,9 @@ namespace QuickApp.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]AccountType AccountType)
+        public IActionResult Post(AccountType AccountType)
         {
-            var result = _accounttyperepository.CreateAccountType(AccountType);
+            var result = _unitOfWork.Accounttypes.CreateAccountType(AccountType);
             return Ok(AccountType);
         }
 

@@ -24,9 +24,9 @@ export class TodoAccountTypeComponent implements OnInit, OnDestroy {
     AccountTypeName: '',
    AccountTypeShortName: '',
     CreatedBy: '',
-    CreatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+    CreatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
     UpdatedBy: '',
-    UpdatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+    UpdatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
   };
 
   rows = [];
@@ -211,11 +211,13 @@ export class TodoAccountTypeComponent implements OnInit, OnDestroy {
         AccountTypeName: '',
         AccountTypeShortName: '',
         CreatedBy: '',
-        CreatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+        CreatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
         UpdatedBy: '',
-        UpdatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+        UpdatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
     };
     let accountType = {};
+
+    let accountTypeobj = [];  
     
     this.accounttype.AccountTypeName = this.taskEdit.description;
     this.accounttype.AccountTypeShortName = this.taskEdit.name;
@@ -228,7 +230,8 @@ export class TodoAccountTypeComponent implements OnInit, OnDestroy {
       UpdatedBy: this.accounttype.UpdatedBy,
       UpdatedDate: this.accounttype.UpdatedDate
     };
-    this.accounttypeService.addAccounttype(accountType)
+    var accountTypeObj = JSON.stringify(accountType);
+    this.accounttypeService.addAccounttype(accountTypeObj)
         .subscribe(accounttype => {
           this.accounttype = accounttype;
         });

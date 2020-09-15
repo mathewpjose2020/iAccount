@@ -25,6 +25,8 @@ using QuickApp.Helpers;
 using System;
 using System.Collections.Generic;
 using AppPermissions = DAL.Core.ApplicationPermissions;
+using DAL.Repositories;
+using DAL.Repositories.Interfaces;
 
 namespace QuickApp
 {
@@ -110,6 +112,7 @@ namespace QuickApp
                 options.AddPolicy(Authorization.Policies.AssignAllowedRolesPolicy, policy => policy.Requirements.Add(new AssignRolesAuthorizationRequirement()));
             });
 
+            
 
             // Add cors
             services.AddCors();
@@ -156,6 +159,7 @@ namespace QuickApp
             // Repositories
             services.AddScoped<IUnitOfWork, HttpUnitOfWork>();
             services.AddScoped<IAccountManager, AccountManager>();
+            services.AddScoped<IAccounttypeRepository, AccounttypeRepository>();
 
             // Auth Handlers
             services.AddSingleton<IAuthorizationHandler, ViewUserAuthorizationHandler>();

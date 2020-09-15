@@ -8,15 +8,15 @@ using DAL.Models.Interfaces;
 
 namespace DAL.Models
 {
-   public class AccountType//: IAuditableEntity
+   public class AccountType: IAuditableEntity
     {
         public int Id { get; set; }
         public string AccountTypeName { get; set; }
         public string AccountTypeShortName { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
-        public string CreatedDate { get; set; }
-        public string UpdatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
 
     }
 }

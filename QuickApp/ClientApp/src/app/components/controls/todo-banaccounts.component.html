@@ -83,37 +83,126 @@
 
 
             <div class="form-group row">
-              <label class="col-form-label col-md-3" for="taskName">{{'todoBankAccounts.editor.Accounttype' | translate}}:</label>
+              <label class="col-form-label col-md-3" for="taskAccountName">{{'todoBankAccounts.editor.AccountName' | translate}}:</label>
               <div class="col-md-9">
-                <input appAutofocus type="text" id="taskName" name="taskName" placeholder="Enter Account Type" class="form-control" [ngClass]="{'is-valid': f.submitted && taskName.valid, 'is-invalid' : f.submitted && !taskName.valid}"
-                       [(ngModel)]="taskEdit.name" #taskName="ngModel" required />
-                <span *ngIf="f.submitted && !taskName.valid" class="invalid-feedback">
-                  {{'todoBankAccounts.editor.AccounttypeRequired' | translate}}
+                <input appAutofocus type="text" id="taskAccountName" name="taskAccountName" placeholder="Enter Account Name" class="form-control" [ngClass]="{'is-valid': f.submitted && taskAccountName.valid, 'is-invalid' : f.submitted && !taskAccountName.valid}"
+                       [(ngModel)]="taskEdit.AccountName" #taskAccountName="ngModel" required />
+                <span *ngIf="f.submitted && !taskAccountName.valid" class="invalid-feedback">
+                  {{'todoBankAccounts.editor.AccountNameRequired' | translate}}
                 </span>
               </div>
             </div>
 
-            <div class="form-group row description-form-group">
-              <label class="col-form-label col-md-3" for="taskDescription">{{'todoBankAccounts.editor.Shortname' | translate}}:</label>
+            <div class="form-group row">
+              <label class="col-form-label col-md-3" for="taskAddress">{{'todoBankAccounts.editor.Address' | translate}}:</label>
               <div class="col-md-9">
-                <input type="text" id="taskDescription" name="taskDescription" placeholder="Enter Short Name" class="form-control" [ngClass]="{'is-valid': f.submitted && taskDescription.valid, 'is-invalid' : f.submitted && !taskDescription.valid}"
-                       [(ngModel)]="taskEdit.description" #taskDescription="ngModel" required />
-                <span *ngIf="f.submitted && !taskDescription.valid" class="invalid-feedback">
-                  {{'todoBankAccounts.editor.ShortnameRequired' | translate}}
+                <input type="text" id="taskAddress" name="taskAddress" placeholder="Enter Address" class="form-control" [ngClass]="{'is-valid': f.submitted && taskAddress.valid, 'is-invalid' : f.submitted && !taskAddress.valid}"
+                          [(ngModel)]="taskEdit.Address" #taskAddress="ngModel" required />
+                <span *ngIf="f.submitted && !taskAddress.valid" class="invalid-feedback">
+                  {{'todoBankAccounts.editor.AddressRequired' | translate}}
                 </span>
 
               </div>
             </div>
 
-            <!--<div class="row">
-              <label class="col-form-label col-md-3"> </label>
+            <div class="form-group row">
+              <label class="col-form-label col-md-3" for="taskCountry">{{'todoBankAccounts.editor.Country' | translate}}:</label>
               <div class="col-md-9">
-                <div class="form-check">
-                  <input class="form-check-input" id="isImportant" name="isImportant" type="checkbox" [(ngModel)]="taskEdit.important">
-                  <label for="isImportant" class="form-check-label">{{'todoBankAccounts.editor.Important' | translate}}</label>
-                </div>
+                <input appAutofocus type="text" id="taskCountry" name="taskCountry" placeholder="Enter Country" class="form-control" [ngClass]="{'is-valid': f.submitted && taskCountry.valid, 'is-invalid' : f.submitted && !taskCountry.valid}"
+                       [(ngModel)]="taskEdit.Country" #taskCountry="ngModel" required />
+                <span *ngIf="f.submitted && !taskCountry.valid" class="invalid-feedback">
+                  {{'todoBankAccounts.editor.CountryRequired' | translate}}
+                </span>
               </div>
-            </div>-->
+
+              <label class="col-form-label col-md-3" for="taskState">{{'todoBankAccounts.editor.State' | translate}}:</label>
+              <div class="col-md-9">
+                <input type="text" id="taskState" name="taskState" placeholder="Enter State" class="form-control" [ngClass]="{'is-valid': f.submitted && taskState.valid, 'is-invalid' : f.submitted && !taskState.valid}"
+                       [(ngModel)]="taskEdit.State" #taskState="ngModel" required />
+                <span *ngIf="f.submitted && !taskState.valid" class="invalid-feedback">
+                  {{'todoBankAccounts.editor.StateRequired' | translate}}
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="form-group row">
+              <label class="col-form-label col-md-3" for="taskDOB">{{'todoBankAccounts.editor.DOB' | translate}}:</label>
+              <div class="col-md-9">
+                <input appAutofocus type="text" id="taskDOB" name="taskDOB" placeholder="Enter Date of Birth" class="form-control" [ngClass]="{'is-valid': f.submitted && taskDOB.valid, 'is-invalid' : f.submitted && !taskDOB.valid}"
+                       [(ngModel)]="taskEdit.DOB" #taskDOB="ngModel" required />
+                <span *ngIf="f.submitted && !taskDOB.valid" class="invalid-feedback">
+                  {{'todoBankAccounts.editor.DOBRequired' | translate}}
+                </span>
+              </div>
+
+              <label class="col-form-label col-md-3" for="taskAge">{{'todoBankAccounts.editor.Age' | translate}}:</label>
+              <div class="col-md-9">
+                <input type="number" id="taskAge" name="taskAge" placeholder="Enter Age" class="form-control" [ngClass]="{'is-valid': f.submitted && taskAge.valid, 'is-invalid' : f.submitted && !taskAge.valid}"
+                       [(ngModel)]="taskEdit.Age" #taskAge="ngModel" />
+
+              </div>
+
+              <label class="col-form-label col-md-3" for="taskSex">{{'todoBankAccounts.editor.Sex' | translate}}:</label>
+              <div class="col-md-9">
+                <input type="text" id="taskSex" name="taskSex" placeholder="Enter Sex" class="form-control" [ngClass]="{'is-valid': f.submitted && taskSex.valid, 'is-invalid' : f.submitted && !taskSex.valid}"
+                       [(ngModel)]="taskEdit.Sex" #taskSex="ngModel" />
+
+              </div>
+
+            </div>
+
+            <div class="form-group row">
+              <label class="col-form-label col-md-3" for="taskPhoneNo">{{'todoBankAccounts.editor.PhoneNo' | translate}}:</label>
+              <div class="col-md-9">
+                <input type="tel" id="taskPhoneNo" name="taskPhoneNo" placeholder="Enter Short Name" class="form-control" [ngClass]="{'is-valid': f.submitted && taskPhoneNo.valid, 'is-invalid' : f.submitted && !taskPhoneNo.valid}"
+                       [(ngModel)]="taskEdit.PhoneNo" #taskPhoneNo="ngModel" required />
+                <span *ngIf="f.submitted && !taskPhoneNo.valid" class="invalid-feedback">
+                  {{'todoBankAccounts.editor.PhoneNoRequired' | translate}}
+                </span>
+
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-form-label col-md-3" for="taskContactEmail">{{'todoBankAccounts.editor.ContactEmail' | translate}}:</label>
+              <div class="col-md-9">
+                <input type="email" id="taskContactEmail" name="taskContactEmail" placeholder="Enter Short Name" class="form-control" [ngClass]="{'is-valid': f.submitted && taskContactEmail.valid, 'is-invalid' : f.submitted && !taskContactEmail.valid}"
+                       [(ngModel)]="taskEdit.ContactEmail" #taskContactEmail="ngModel" required />
+                <span *ngIf="f.submitted && !taskContactEmail.valid" class="invalid-feedback">
+                  {{'todoBankAccounts.editor.ContactEmailRequired' | translate}}
+                </span>
+
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-form-label col-md-3" for="taskAccountType">{{'todoBankAccounts.editor.AccountType' | translate}}:</label>
+              <div class="col-md-9">
+                <input type="text" id="taskAccountType" name="taskAccountType" placeholder="Enter Short Name" class="form-control" [ngClass]="{'is-valid': f.submitted && taskAccountType.valid, 'is-invalid' : f.submitted && !taskAccountType.valid}"
+                       [(ngModel)]="taskEdit.AccountType" #taskAccountType="ngModel" required />
+                <span *ngIf="f.submitted && !taskAccountType.valid" class="invalid-feedback">
+                  {{'todoBankAccounts.editor.AccountTypeRequired' | translate}}
+                </span>
+
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-form-label col-md-3" for="taskAccountNumber">{{'todoBankAccounts.editor.AccountNumber' | translate}}:</label>
+              <div class="col-md-9">
+                <input type="text" id="taskAccountNumber" name="taskAccountNumber" placeholder="Enter Short Name" class="form-control" [ngClass]="{'is-valid': f.submitted && taskAccountNumber.valid, 'is-invalid' : f.submitted && !taskAccountNumber.valid}"
+                       [(ngModel)]="taskEdit.AccountNumber" #taskAccountNumber="ngModel" required />
+                <span *ngIf="f.submitted && !taskAccountNumber.valid" class="invalid-feedback">
+                  {{'todoBankAccounts.editor.AccountNumberRequired' | translate}}
+                </span>
+
+              </div>
+            </div>
+
+
+
 
             <div class="row">
               <div class="col-md-12">

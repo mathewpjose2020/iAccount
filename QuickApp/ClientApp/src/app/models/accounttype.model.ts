@@ -1,6 +1,6 @@
 export class Accounttype {
     
-  constructor(id?: Number, accountTypeName?: string, accountTypeShortName?: string, CreatedBy?: string, UpdatedBy?: string, CreatedDate?: string, UpdatedDate?: string) {
+  constructor(id?: Number, accountTypeName?: string, accountTypeShortName?: string, CreatedBy?: string, UpdatedBy?: string, CreatedDate?: Date, UpdatedDate?: Date) {
 
     this.Id = id;
     this.AccountTypeName = accountTypeName;
@@ -16,6 +16,6 @@ export class Accounttype {
   public AccountTypeShortName: string;
   public CreatedBy: string;
   public UpdatedBy: string;
-  public CreatedDate: string;
-  public UpdatedDate: string;
+  public CreatedDate: Date;
+  public UpdatedDate: Date;
 }

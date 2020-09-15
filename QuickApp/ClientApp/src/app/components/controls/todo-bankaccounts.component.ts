@@ -24,9 +24,9 @@ export class TodoBankAccountsComponent implements OnInit, OnDestroy {
     AccountTypeName: '',
     AccountTypeShortName: '',
     CreatedBy: '',
-    CreatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+    CreatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
     UpdatedBy: '',
-    UpdatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+    UpdatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
   };
 
   rows = [];
@@ -212,9 +212,9 @@ export class TodoBankAccountsComponent implements OnInit, OnDestroy {
       AccountTypeName: '',
       AccountTypeShortName: '',
       CreatedBy: '',
-      CreatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+      CreatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
       UpdatedBy: '',
-      UpdatedDate: this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+      UpdatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
     };
     this.accounttype.AccountTypeName = this.taskEdit.description;
     this.accounttype.AccountTypeShortName = this.taskEdit.name;
