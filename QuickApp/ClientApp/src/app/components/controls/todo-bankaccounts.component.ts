@@ -9,6 +9,7 @@ import { LocalStoreManager } from '../../services/local-store-manager.service';
 import { Utilities } from '../../services/utilities';
 import { AccounttypeService } from '../../services/accounttype.service';
 import { Accounttype } from '../../models/accounttype.model';
+import { CountriesService } from '../../services/countries.service';
 
 
 
@@ -39,6 +40,11 @@ export class TodoBankAccountsComponent implements OnInit, OnDestroy {
   formResetToggle = true;
   _currentUserId: string;
   _hideCompletedTasks = false;
+  stateInfo: any[] = [];
+  countryInfo: any[] = [];
+  cityInfo: any[] = [];
+  accountTypes: any[] = [];
+
 
 
   get currentUserId() {
@@ -93,7 +99,7 @@ export class TodoBankAccountsComponent implements OnInit, OnDestroy {
   editorModal: ModalDirective;
 
 
-  constructor(private accounttypeService: AccounttypeService, public datepipe: DatePipe, private alertService: AlertService, private translationService: AppTranslationService, private localStorage: LocalStoreManager, private authService: AuthService) {
+  constructor(private country:CountriesService,private accounttypeService: AccounttypeService, public datepipe: DatePipe, private alertService: AlertService, private translationService: AppTranslationService, private localStorage: LocalStoreManager, private authService: AuthService) {
 
   }
 
@@ -121,10 +127,45 @@ export class TodoBankAccountsComponent implements OnInit, OnDestroy {
       { prop: 'createdon', name: gT('todoAccountType.management.Createdon'), cellTemplate: this.nameTemplate, width: 200 },
       { name: '', width: 80, cellTemplate: this.actionsTemplate, resizeable: false, canAutoResize: false, sortable: false, draggable: false }
     ];
+
+    this.getCountries();
+    this.getAccountTypes();
   }
 
   ngOnDestroy() {
     this.saveToDisk();
+  }
+
+  getCountries() {
+    this.country.allCountries().
+      subscribe(
+        data2 => {
+          this.countryInfo = data2.Countries;
+        },
+        err => console.log(err),
+        () => console.log('complete')
+      )
+  }
+
+  getAccountTypes() {
+    this.accounttypeService.getaccounttypes().
+      subscribe(
+        data2 => {
+          this.accountTypes = data2;
+        },
+        err => console.log(err),
+        () => console.log('complete')
+      )
+  }
+
+  onChangeCountry(countryValue) {
+    this.stateInfo = this.countryInfo[countryValue].States;
+    this.cityInfo = this.stateInfo[0].Cities;
+    console.log(this.cityInfo);
+  }
+
+  onChangeState(stateValue) {
+    this.cityInfo = this.stateInfo[stateValue].Cities;
   }
 
 

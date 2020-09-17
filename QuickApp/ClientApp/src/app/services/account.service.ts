@@ -16,7 +16,7 @@ export interface RolesChangedEventArg { roles: Role[] | string[]; operation: Rol
 export class AccountService {
   public static readonly roleAddedOperation: RolesChangedOperation = 'add';
   public static readonly roleDeletedOperation: RolesChangedOperation = 'delete';
-  public static readonly roleModifiedOperation: RolesChangedOperation = 'modify';
+ public static readonly roleModifiedOperation: RolesChangedOperation = 'modify';
 
   private rolesChanged = new Subject<RolesChangedEventArg>();
 
