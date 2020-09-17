@@ -8,7 +8,9 @@ import { AppTranslationService } from '../../services/app-translation.service';
 import { LocalStoreManager } from '../../services/local-store-manager.service';
 import { Utilities } from '../../services/utilities';
 import { AccounttypeService } from '../../services/accounttype.service';
+import { BankAccountsService } from '../../services/bankaccounts.service';
 import { Accounttype } from '../../models/accounttype.model';
+import { BankAccounts } from '../../models/bankaccounts.model';
 import { CountriesService } from '../../services/countries.service';
 
 
@@ -24,6 +26,24 @@ export class TodoBankAccountsComponent implements OnInit, OnDestroy {
     Id: 0,
     AccountTypeName: '',
     AccountTypeShortName: '',
+    CreatedBy: '',
+    CreatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+    UpdatedBy: '',
+    UpdatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
+  };
+  public bankAccount: BankAccounts = {
+    Id: 0,
+    AccountNo: '',
+    AccountHolderName: '',
+    AccountTypeId: 0,
+    Address: '',
+    Age: 0,
+    ContactEmail: '',
+    ContactNo: '',
+    Country: '',
+    State: '',
+    DateofBirth: new Date(),
+    Sex:'',
     CreatedBy: '',
     CreatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
     UpdatedBy: '',
@@ -99,7 +119,7 @@ export class TodoBankAccountsComponent implements OnInit, OnDestroy {
   editorModal: ModalDirective;
 
 
-  constructor(private country:CountriesService,private accounttypeService: AccounttypeService, public datepipe: DatePipe, private alertService: AlertService, private translationService: AppTranslationService, private localStorage: LocalStoreManager, private authService: AuthService) {
+  constructor(private country: CountriesService, private bankAccountsService: BankAccountsService,private accounttypeService: AccounttypeService, public datepipe: DatePipe, private alertService: AlertService, private translationService: AppTranslationService, private localStorage: LocalStoreManager, private authService: AuthService) {
 
   }
 
@@ -248,20 +268,21 @@ export class TodoBankAccountsComponent implements OnInit, OnDestroy {
   //}
 
   save() {
-    this.accounttype = {
-      Id: 0,
-      AccountTypeName: '',
-      AccountTypeShortName: '',
-      CreatedBy: '',
-      CreatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
-      UpdatedBy: '',
-      UpdatedDate: new Date(),//this.datepipe.transform(new Date(), 'yyyy-MMM-dd'),
-    };
-    this.accounttype.AccountTypeName = this.taskEdit.description;
-    this.accounttype.AccountTypeShortName = this.taskEdit.name;
-    this.accounttypeService.addAccounttype(this.accounttype)
-      .subscribe(accounttype => {
-        this.accounttype = accounttype;
+    this.bankAccount.AccountHolderName = this.taskEdit.AccountName;
+    this.bankAccount.Address = this.taskEdit.Address;
+    this.bankAccount.AccountNo = this.taskEdit.AccountNumber;
+    this.bankAccount.Age = this.taskEdit.Age;
+    this.bankAccount.AccountTypeId = this.taskEdit.AccountType;
+    this.bankAccount.ContactEmail = this.taskEdit.ContactEmail;
+    this.bankAccount.ContactNo = this.taskEdit.PhoneNo;
+    this.bankAccount.Country = this.taskEdit.Country;
+    this.bankAccount.DateofBirth = this.taskEdit.DOB;
+    this.bankAccount.Sex = this.taskEdit.Sex;
+    this.bankAccount.State = this.taskEdit.State;
+    this.bankAccount.AccountHolderName = this.taskEdit.AccountName;
+    this.bankAccountsService.addBankAccount(this.bankAccount)
+      .subscribe(bankAccount => {
+        this.bankAccount = bankAccount;
       });
   }
 

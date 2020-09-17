@@ -160,6 +160,7 @@ namespace QuickApp
             services.AddScoped<IUnitOfWork, HttpUnitOfWork>();
             services.AddScoped<IAccountManager, AccountManager>();
             services.AddScoped<IAccounttypeRepository, AccounttypeRepository>();
+            services.AddScoped<IBankAccountRepository, BankAccountRepository>();
 
             // Auth Handlers
             services.AddSingleton<IAuthorizationHandler, ViewUserAuthorizationHandler>();

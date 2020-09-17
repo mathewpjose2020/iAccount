@@ -8,6 +8,9 @@ using QuickApp.ViewModels;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using QuickApp.Helpers;
+using DAL.Repositories;
+using DAL.Models;
+using DAL.Repositories.Interfaces;
 
 namespace QuickApp.Controllers
 {
@@ -19,20 +22,23 @@ namespace QuickApp.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IBankAccountRepository _bankAccountRepository;
 
-        public BankAccountController(IMapper mapper, IUnitOfWork unitOfWork, ILogger<AccounttypeController> logger, IEmailSender emailSender)
+        public BankAccountController(IBankAccountRepository bankAccountRepository, IMapper mapper, IUnitOfWork unitOfWork, ILogger<AccounttypeController> logger, IEmailSender emailSender)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _logger = logger;
             _emailSender = emailSender;
+            _bankAccountRepository = bankAccountRepository;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var allAccounts = _unitOfWork.BankAccounts.GetAllAccounts();
-            return Ok(_mapper.Map<IEnumerable<BankAccountViewModel>>(allAccounts));
+            var allBankAccounts = _unitOfWork.BankAccounts.GetAllAccounts();
+            //return Ok(_mapper.Map<IEnumerable<BankAccountViewModel>>(allAccounts));
+            return Ok(allBankAccounts);
         }
 
         // GET api/values/5
@@ -46,8 +52,10 @@ namespace QuickApp.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post(BankAccount BankAccount)
         {
+            var result = _unitOfWork.BankAccounts.CreateBankAccount(BankAccount);
+            return Ok(BankAccount);
         }
 
 

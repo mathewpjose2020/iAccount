@@ -73,6 +73,8 @@
     <None Remove="ClientApp\src\app\components\controls\todo-bankaccounts.component.ts" />
     <None Remove="ClientApp\src\app\models\accounttype.model.js" />
     <None Remove="ClientApp\src\app\models\accounttype.model.js.map" />
+    <None Remove="ClientApp\src\app\models\bankaccounts.model.ts" />
+    <None Remove="ClientApp\src\app\services\bankaccounts.service.ts" />
     <None Remove="ClientApp\src\app\services\countries.service.ts" />
   </ItemGroup>
 
@@ -81,6 +83,8 @@
     <TypeScriptCompile Include="ClientApp\src\app\components\bankaccounts\bankaccounts.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\controls\todo-accounttype.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\controls\todo-bankaccounts.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\bankaccounts.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\bankaccounts.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\countries.service.ts" />
   </ItemGroup>
 

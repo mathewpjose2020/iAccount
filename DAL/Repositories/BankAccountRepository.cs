@@ -11,6 +11,7 @@ namespace DAL.Repositories
 {
     public class BankAccountRepository : Repository<BankAccount>, IBankAccountRepository
     {
+        private ApplicationDbContext _appContext => (ApplicationDbContext)_context;
         public BankAccountRepository(ApplicationDbContext context) : base(context)
         { }
         public IEnumerable<BankAccount> GetAllAccounts()
@@ -20,6 +21,13 @@ namespace DAL.Repositories
                 .ToList();
         }
 
-        private ApplicationDbContext _appContext => (ApplicationDbContext)_context;
+        public async Task<(bool Succeeded, string[] Errors)> CreateBankAccount(BankAccount BankAccount)
+        {
+            var result = await _appContext.BankAccounts.AddAsync(BankAccount);
+            _appContext.SaveChanges();
+
+            return (true, new string[] { });
+        }
+
     }
 }
