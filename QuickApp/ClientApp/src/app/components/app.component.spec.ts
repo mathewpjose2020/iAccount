@@ -81,10 +81,10 @@ describe('AppComponent', () => {
         expect(app).toBeTruthy();
     });
 
-  it(`should have as title 'Account Management'`, () => {
+  it(`should have as title 'iAccount'`, () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance as AppComponent;
-    expect(app.appTitle).toEqual('Account Management');
+    expect(app.appTitle).toEqual('iAccount');
     });
 
     it('should render Loaded! in a h1 tag', () => {

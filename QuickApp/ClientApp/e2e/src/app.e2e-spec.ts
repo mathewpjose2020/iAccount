@@ -14,6 +14,6 @@ describe('QuickApp App', () => {
 
   it('should display application title: QuickApp', () => {
     page.navigateTo();
-    expect(page.getAppTitle()).toEqual('Account Management');
+    expect(page.getAppTitle()).toEqual('iAccount');
   });
 });
